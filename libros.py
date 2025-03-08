@@ -180,7 +180,7 @@ def frame_libros(root):
     lbl_titulo_libros.pack(side=tk.TOP, pady=5)
 
     #ICONO DE BUSCAR
-    icono_buscar = tk.PhotoImage(file="icono_buscar.png").subsample(15)
+    icono_buscar = tk.PhotoImage(file="img/icono_buscar.png").subsample(15)
 
 
     frame_buscar_libro = tk.Frame(frame_libros, bg="#e8cb9a")
@@ -208,9 +208,9 @@ def frame_libros(root):
     frame_gestion_libros = tk.Frame(frame_libros, bg="#e8cb9a")
     frame_gestion_libros.pack(side=tk.TOP, pady=15)
 
-    icono_agregar = tk.PhotoImage(file="agregar_libro.png").subsample(10)
-    icono_editar = tk.PhotoImage(file="editar_libro.png").subsample(10)
-    icono_eliminar = tk.PhotoImage(file="delete_book.png").subsample(10)
+    icono_agregar = tk.PhotoImage(file="img/agregar_libro.png").subsample(10)
+    icono_editar = tk.PhotoImage(file="img/editar_libro.png").subsample(10)
+    icono_eliminar = tk.PhotoImage(file="img/delete_book.png").subsample(10)
 
     btn_ingresar_libro = tk.Button(frame_gestion_libros, text="Agregar Libro",  font=('Verdana', 10), image=icono_agregar, compound="left", bg="#22fa04", command=lambda: window_agregar_libro(root, tree_libros))
     btn_ingresar_libro.image = icono_agregar
