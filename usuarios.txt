@@ -1,4 +1,4 @@
-1	Angel Rodriguez	32423412	angel@gmail.com
+1	Angel Rodriguez Aguilar	22223333	angelfer@gmail.com
 2	Maria Lopez	98765432	maria@gmail.com
 3	Juan Perez	56789012	juanperez@gmail.com
 4	Carlos Gomez	12345678	carlos@gmail.com
@@ -18,4 +18,5 @@
 18	Hugo Paredes	56723489	hugo@gmail.com
 19	Valeria Jimenez	67834590	valeria@gmail.com
 20	Esteban Navas	78945601	esteban@gmail.com
-21	Erick Maldonado	34231223	erick@gmail.com
+22	Jorge Alvarez	345667453	jorge@gmail.com
+23	Esteban Perez	123456780	este@gmail.com
