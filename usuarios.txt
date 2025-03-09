@@ -18,3 +18,4 @@
 18	Hugo Paredes	56723489	hugo@gmail.com
 19	Valeria Jimenez	67834590	valeria@gmail.com
 20	Esteban Navas	78945601	esteban@gmail.com
+21	Erick Maldonado	34231223	erick@gmail.com

@@ -173,7 +173,6 @@ def eliminar_libro(tree_libros):
 
 def frame_libros(root):
     frame_libros = tk.Frame(root, bg="#e8cb9a")
-
     frame_libros.place(x=0, y=98, width=1150, height=452)
 
     lbl_titulo_libros = tk.Label(frame_libros, text="Gestion de Libros", font=('Verdana', 20), bg="#e8cb9a", fg="#0b0639")
@@ -203,7 +202,7 @@ def frame_libros(root):
     tree_libros.pack(side=tk.LEFT, fill=tk.X, expand=True)
     scrollbar_libros = ttk.Scrollbar(frame_tabla_libros, orient='vertical', command=tree_libros.yview)
     tree_libros.config(yscrollcommand=scrollbar_libros.set)
-    scrollbar_libros.pack(side=tk.LEFT)
+    scrollbar_libros.pack(side=tk.RIGHT, fill=tk.Y)
 
     frame_gestion_libros = tk.Frame(frame_libros, bg="#e8cb9a")
     frame_gestion_libros.pack(side=tk.TOP, pady=15)
