@@ -1,0 +1,40 @@
+1	La vuelta al mundo	Julio Verne
+2	Don Quijote de la Mancha	Miguel de Cervantes
+3	Cien años de soledad	Gabriel García Márquez
+4	Crimen y castigo	Fiódor Dostoievski
+5	Orgullo y prejuiciossssssss	Jane Austensssssss
+6	El Principito	Antoine de Saint-Exupéry
+7	Moby Dick	Herman Melville
+8	1984	George Orwell
+9	Los miserables	Víctor Hugo
+10	El nombre de la rosa	Umberto Eco
+11	Drácula	Bram Stoker
+12	La Odisea	Homero
+13	El retrato de Dorian Gray	Oscar Wilde
+14	Las aventuras de Sherlock Holmes	Arthur Conan Doyle
+15	El Hobbit	J.R.R. Tolkien
+16	Los juegos del hambre	Suzanne Collins
+17	El código Da Vinci	Dan Brown
+18	La sombra del viento	Carlos Ruiz Zafón
+19	Los pilares de la Tierra	Ken Follett
+20	El señor de los anillos	J.R.R. Tolkien
+21	Harry Potter y la piedra filosofal	J.K. Rowling
+22	Los hombres que no amaban a las mujeres	Stieg Larsson
+23	El alquimista	Paulo Coelho
+24	Rebelión en la granja	George Orwell
+25	Un mundo feliz	Aldous Huxley
+26	La Divina Comedia	Dante Alighieri
+27	El perfume	Patrick Süskind
+28	La historia interminable	Michael Ende
+29	El conde de Montecristo	Alexandre Dumas
+30	It	Stephen King
+31	Carrie	Stephen King
+32	El resplandor	Stephen King
+33	El psicoanalista	John Katzenbach
+34	La catedral del mar	Ildefonso Falcones
+35	Memorias de una geisha	Arthur Golden
+36	El silencio de los corderos	Thomas Harris
+37	La carretera	Cormac McCarthy
+38	Las uvas de la ira	John Steinbeck
+39	El túnel	Ernesto Sabato
+123456789X	Harry Potter y el Caliz de fuego	Jk
