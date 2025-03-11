@@ -1,7 +1,6 @@
 1984		11/03/2025	11/03/2025
 El código Da Vinci	Juan Perez	11/03/2025	11/03/2025
 Harry Potter y la piedra filosofal	Carlos Gomez	11/03/2025	11/03/2025
-El Hobbit	Esteban Perez	11/03/2025	11/03/2025
 Drácula	Juan Perez	11/03/2025	11/03/2025
 El Principito	Sergio Torres	11/03/2025	11/03/2025
 La vuelta al mundo	Maria Lopez	11/03/2025	11/03/2025

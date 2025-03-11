@@ -103,6 +103,83 @@ def window_agregar_prestamo( actualizar_prestamos ):
     btn_cancelar = tk.Button( principal_window, text="Cancelar", command=principal_window.destroy )
     btn_cancelar.pack( side=tk.RIGHT, padx=25 )
 
+def window_editar_prestamo( actualizar_tabla, pos_libro, pos_usuario, fecha_devolucion ):
+    def actualizar_prestamo():
+        libro = opc_isbn.get()
+        usuario = opc_usuarios.get()
+        fecha_devolucion = cal.get_date().strftime('%d/%m/%Y')
+        if libro == "" or usuario == "":
+            messagebox.showerror("Error", "Por favor Seleccione un libro y un usuario")
+            return
+        try:
+            prestamos = get_all_prestamos()
+            with open("prestamos.txt", "w") as file:
+                for prestamo in prestamos:
+                    if prestamo[0] == libro:
+                        file.write(f"{libro}\t{usuario}\t{prestamo[2]}\t{fecha_devolucion}\n")
+                    else:
+                        file.write("\t".join(prestamo) + "\n")
+            messagebox.showinfo("Exito", "Prestamo actualizado con exito")
+            principal_window.destroy()
+            actualizar_tabla()
+        except Exception as e:
+            print("Error al guardar el prestamo", e)
+            messagebox.showerror("Error", "No se pudo guardar el prestamo ")
+
+    principal_window = tk.Toplevel()
+    principal_window.title("Editar Prestamo")
+    principal_window.geometry("380x200")
+
+    lbl_margin = tk.Label( principal_window, text="" )
+    lbl_margin.pack()
+
+    frame1 = tk.Frame( principal_window )
+    frame1.pack( anchor=tk.W, padx=25, fill=tk.X )
+    lbl_isbn1 = tk.Label( frame1, text="Libro: " )   
+    lbl_isbn1.pack(side=tk.LEFT, padx=(0, 13))
+    lista_isbn = get_lista_for_listbox( "libros" )
+    opc_isbn = tk.StringVar( frame1 )
+    for i, titulo_libro in enumerate(get_all_prestamos(),start=0):
+        if titulo_libro[0] == pos_libro:
+            opc_isbn.set(get_all_prestamos()[i][0])
+            break
+    if len(lista_isbn) == 0:
+        lista_isbn.append("No hay libros")
+    checklist_isbn = tk.OptionMenu( frame1, opc_isbn, *lista_isbn )
+    checklist_isbn.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+   
+
+    frame2 = tk.Frame( principal_window )
+    frame2.pack( anchor=tk.W, padx=25, fill=tk.X, pady=6 )
+    lbl_usuario = tk.Label( frame2, text="Usuario: " )   
+    lbl_usuario.pack(side=tk.LEFT)
+    lista_usuarios = get_lista_for_listbox( "usuarios" )
+    opc_usuarios = tk.StringVar( frame2 )
+    if len(lista_usuarios) == 0:
+        lista_usuarios.append("No hay usuarios")
+##REVISA ESTO ESTA MALO-------------------------------------------------------
+    for i, nombre_usuario in enumerate(get_all_prestamos(),start=0):
+        if nombre_usuario == pos_usuario:
+            opc_usuarios.set(get_all_prestamos()[i][1])
+            break
+##---------------------------------------------------------------------------
+    checklist_usuarios = tk.OptionMenu( frame2, opc_usuarios, *lista_usuarios )
+    checklist_usuarios.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+    frame3 = tk.Frame( principal_window )
+    frame3.pack( anchor=tk.W, padx=25, fill=tk.X, pady=6 )
+    lbl_fecha = tk.Label( frame3, text="Fecha de entrega: " )
+    lbl_fecha.pack(side=tk.LEFT)
+    cal = DateEntry( frame3, width=12, background='darkblue', foreground='white', borderwidth=2, date_pattern='dd/MM/yyyy', mindate=date.today() )
+    cal.pack(side=tk.LEFT, fill=tk.X, expand=True)
+    cal.set_date(fecha_devolucion)
+
+    btn_agregar = tk.Button( principal_window, text="Editar Prestamos", command=actualizar_prestamo )
+    btn_agregar.pack(side=tk.LEFT, padx=25, expand=False)
+    btn_cancelar = tk.Button( principal_window, text="Cancelar", command=principal_window.destroy )
+    btn_cancelar.pack( side=tk.RIGHT, padx=25 )
+
 def frame_pretamos( root:tk.Tk ):
     def buscar_prestamos(variable):
         print( variable.get() )
@@ -147,6 +224,18 @@ def frame_pretamos( root:tk.Tk ):
             print("Error al cargar los prestamos", e)
             messagebox.showerror("Error", "No se pudo cargar los prestamos")
 
+    def seleccionar_y_editar_prestamos():
+        tree_prestamos.selection()
+        seleccion = tree_prestamos.selection()
+        if len(seleccion) == 0:
+            messagebox.showerror("Error", "Por favor seleccione un prestamo")
+            return
+        item = tree_prestamos.item(seleccion)
+        libro = item['values'][0]
+        usuario = item['values'][1]
+        fecha_devolucion = item['values'][3]
+        window_editar_prestamo( load_prestamos, libro, usuario, fecha_devolucion )
+
     frame_prestamos = tk.Frame(root)
     frame_prestamos.place( x=0, y=98, width=1150, height=452 )
 
@@ -180,6 +269,8 @@ def frame_pretamos( root:tk.Tk ):
     frame_gestion_prestamos.pack( side=tk.TOP, pady= 15 )
     btn_ingresar_prestamos = tk.Button( frame_gestion_prestamos, text="Prestar Libro", command=lambda: window_agregar_prestamo( load_prestamos ))
     btn_ingresar_prestamos.pack(side=tk.LEFT, padx=10)
+    btn_editar_prestamos = tk.Button( frame_gestion_prestamos, text="Editar Prestamo", command=seleccionar_y_editar_prestamos )
+    btn_editar_prestamos.pack(side=tk.LEFT, padx=10)
     btn_eliminar_prestamos = tk.Button( frame_gestion_prestamos, text="Devolucion de Libro", command=devolver_prestamos )
     btn_eliminar_prestamos.pack(side=tk.LEFT,padx=10)
 
