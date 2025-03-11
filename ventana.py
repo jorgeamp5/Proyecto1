@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox
 from libros import frame_libros
 from usuarios import frame_usuarios
+from prestamos import frame_pretamos
 
 # MENU GENERAL
 root = tk.Tk()
@@ -19,6 +20,7 @@ def cambiar_pagina(lbl_indicador, frame):
     # Ocultar todos los frames antes de mostrar el seleccionado
     frame_libros.pack_forget()
     frame_usuarios.pack_forget()
+    frame_prestamos.pack_forget()
 
     # Mostrar el frame seleccionado
     frame.pack(fill=tk.BOTH, expand=True)
@@ -51,17 +53,28 @@ btn_usuarios.pack(side=tk.LEFT, padx=2, fill=tk.Y, ipadx=20)
 lbl_indicador_usuarios = tk.Label(menu_botones, text="", background="#ffedba")
 lbl_indicador_usuarios.place(x=2, y=35, width=79, height=5)
 
+
+#----------------------prestamos
+
+btn_prestamos = tk.Button(menu_botones, text='Prestamos', bd=0, background="#8e582c", fg="white",  command=lambda:cambiar_pagina(lbl_indicador_prestamos, frame_prestamos) )
+btn_prestamos.pack(side=tk.LEFT, padx=2, fill=tk.Y, ipadx=20)
+lbl_indicador_prestamos = tk.Label(menu_botones, text="", background="#ffedba")
+lbl_indicador_prestamos.place(x=2, y=35, width=79, height=5)
+
 #---------------------frames
 
 frame_libros, tree_libros = frame_libros(root)
 frame_libros.pack(fill=tk.BOTH, expand=True)
 
-
 frame_usuarios, tree_usuarios = frame_usuarios(root)
 frame_usuarios.pack(fill=tk.BOTH, expand=True)
 
+frame_prestamos = frame_pretamos(root)
+frame_prestamos.pack(fill=tk.BOTH, expand=True)
+
 frame_libros.tkraise()
 frame_usuarios.pack_forget()
+frame_prestamos.pack_forget()
 
 root.mainloop()
 
