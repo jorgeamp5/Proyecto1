@@ -34,8 +34,15 @@ def obtener_siguiente_id():
             continue
     return max_id + 1
 
+def validar_nombre(nombre):
+    return nombre.replace(" ", "").isalpha()
 
-# AGREGAR USUARIOS
+def validar_telefono(telefono):
+    return telefono.isdigit() and len(telefono) == 8
+
+def validar_email(email):
+    return re.match(r'^[\w\.-]+@[\w\.-]+\.com$', email)
+
 def window_agregar_usuario(root, tree_usuarios):
     def agregar_usuario(event=None):
         id_entry = input_id.get()
@@ -43,13 +50,25 @@ def window_agregar_usuario(root, tree_usuarios):
         telefono = input_telefono.get()
         email = input_email.get()
 
-        if id_entry == "" or nombre == "" or telefono == "" or email == "":
+        if not nombre or not telefono or not email:
             messagebox.showerror("Error", "Todos los campos son obligatorios.")
+            return
+
+        if not validar_nombre(nombre):
+            messagebox.showerror("Error", "El nombre solo puede contener letras.")
+            return
+
+        if not validar_telefono(telefono):
+            messagebox.showerror("Error", "El teléfono debe tener exactamente 8 dígitos y solo números.")
+            return
+
+        if not validar_email(email):
+            messagebox.showerror("Error",
+                                 "El correo electrónico no es válido. Debe contener '@' y terminar en '.com'")
             return
 
         with open('usuarios.txt', 'a') as file:
             file.write(f"{id_entry}\t{nombre}\t{telefono}\t{email}\n")
-
             tree_usuarios.insert("", "end", values=(id_entry, nombre, telefono, email))
             messagebox.showinfo("Éxito", "El Usuario se agregó correctamente.")
             principal_window.destroy()
@@ -83,11 +102,11 @@ def window_agregar_usuario(root, tree_usuarios):
     input_email.pack(anchor=tk.W, padx=25, fill=tk.X)
 
     # input_email.bind('<Return>', agregar_usuarios)
-    btn_agregar = tk.Button(principal_window, text="Agregar", command=agregar_usuario)
-    btn_agregar.pack(side=tk.LEFT, padx=25, expand=False)
+    btn_agregar = tk.Button(principal_window, text="Agregar",font=('Verdana', 10), bg="#ffedba", command=agregar_usuario)
+    btn_agregar.pack(side=tk.LEFT, padx=25, pady=10)
 
-    btn_cancelar = tk.Button(principal_window, text="Cancelar", command=principal_window.destroy)
-    btn_cancelar.pack(side=tk.RIGHT, padx=25)
+    btn_cancelar = tk.Button(principal_window, text="Cancelar",font=('Verdana', 10), bg="#ffedba", command=principal_window.destroy)
+    btn_cancelar.pack(side=tk.RIGHT, padx=25, pady=10)
 
 
 # GESTIONAR USUARIOS Y TREE_USUARIOS VARIABLE GLOBAL
