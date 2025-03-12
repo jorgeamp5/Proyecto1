@@ -101,7 +101,7 @@ def window_agregar_usuario(root, tree_usuarios):
     input_email = tk.Entry(principal_window)
     input_email.pack(anchor=tk.W, padx=25, fill=tk.X)
 
-    # input_email.bind('<Return>', agregar_usuarios)
+    input_email.bind('<Return>', agregar_usuario)
     btn_agregar = tk.Button(principal_window, text="Agregar",font=('Verdana', 10), bg="#ffedba", command=agregar_usuario)
     btn_agregar.pack(side=tk.LEFT, padx=25, pady=10)
 
