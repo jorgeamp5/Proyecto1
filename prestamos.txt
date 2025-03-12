@@ -1,11 +1,4 @@
-1984		11/03/2025	11/03/2025
-El código Da Vinci	Juan Perez	11/03/2025	11/03/2025
-Harry Potter y la piedra filosofal	Carlos Gomez	11/03/2025	11/03/2025
-Drácula	Juan Perez	11/03/2025	11/03/2025
-El Principito	Sergio Torres	11/03/2025	11/03/2025
-La vuelta al mundo	Maria Lopez	11/03/2025	11/03/2025
-Los miserables	Maria Lopez	11/03/2025	11/03/2025
-Orgullo y prejuicio	Juan Perez	11/03/2025	11/03/2025
-El señor de los anillos	Juan Perez	11/03/2025	11/03/2025
-La historia interminable	Roberto Diaz	11/03/2025	11/03/2025
-Moby Dick	Sofia Chavez	11/03/2025	11/03/2025
+La sombra del viento	Sergio Torres	11/03/2025	11/03/2025
+Drácula	David Fernandez	11/03/2025	20/03/2025
+Los miserables	Andrea Ramirez	11/03/2025	13/03/2025
+El Hobbit	Sergio Torres	11/03/2025	12/03/2025

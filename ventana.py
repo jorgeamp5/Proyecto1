@@ -53,7 +53,6 @@ btn_usuarios.pack(side=tk.LEFT, padx=2, fill=tk.Y, ipadx=20)
 lbl_indicador_usuarios = tk.Label(menu_botones, text="", background="#ffedba")
 lbl_indicador_usuarios.place(x=2, y=35, width=79, height=5)
 
-
 #----------------------prestamos
 
 btn_prestamos = tk.Button(menu_botones, text='Prestamos', bd=0, background="#8e582c", fg="white",  command=lambda:cambiar_pagina(lbl_indicador_prestamos, frame_prestamos) )
